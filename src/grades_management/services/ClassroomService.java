@@ -1,7 +1,7 @@
-package services;
+package grades_management.services;
 
-import entities.Classroom;
-import entities.Student;
+import grades_management.entities.Classroom;
+import grades_management.entities.Student;
 
 import java.util.Arrays;
 
@@ -37,12 +37,6 @@ public class ClassroomService {
         Arrays.sort(studentsList);
     }
 
-    public void printCurrentRankStudent(String name) {
-        int rank = getCurrentRankStudent(name);
-        String averageScore = studentService.getStudentAvg(classroom.getStudentsList()[rank - 1]);
-        System.out.printf("%s,Rank:%s%n", averageScore, rank);
-    }
-
     public int getCurrentRankStudent(String name) {
         for (int i = 0; i < classroom.getStudentsList().length; i++) {
             if (classroom.getStudentsList()[i].getName().equals(name)) {
@@ -50,6 +44,12 @@ public class ClassroomService {
             }
         }
         return 0;
+    }
+
+    public void printCurrentRankStudent(String name) {
+        int rank = getCurrentRankStudent(name);
+        String averageScore = studentService.getStudentAvg(classroom.getStudentsList()[rank - 1]);
+        System.out.printf("%s,Rank:%s%n", averageScore, rank);
     }
 
     public void printStudentList() {

@@ -1,6 +1,6 @@
-package services;
+package grades_management.services;
 
-import entities.Student;
+import grades_management.entities.Student;
 
 public class StudentService {
 

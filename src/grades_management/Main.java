@@ -1,4 +1,6 @@
-import services.ClassroomService;
+package grades_management;
+
+import grades_management.services.ClassroomService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -26,7 +28,8 @@ public class Main {
     public static int askForStudentsNumber() {
         boolean validInput = false;
         int studentsNumber = 0;
-        while (!validInput) {
+
+        do {
             try {
                 System.out.print("How many students are in this class? : ");
                 studentsNumber = scanner.nextInt();
@@ -41,7 +44,8 @@ public class Main {
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid input: " + e.getMessage());
             }
-        }
+        } while (!validInput);
+
         return studentsNumber;
     }
 
@@ -67,8 +71,30 @@ public class Main {
     }
 
     private static int askForScore(String studentName, String subject) {
-        System.out.printf("%s Student's %s Score : ", studentName, subject);
-        return scanner.nextInt();
+        int score = 0;
+        boolean validInput = false;
+
+        do {
+            try {
+                System.out.printf("%s Student's %s Score : ", studentName, subject);
+                score = scanner.nextInt();
+
+                if (score < 0) {
+                    throw new IllegalArgumentException("The score must be at least 0");
+                }
+                if (score > 100) {
+                    throw new IllegalArgumentException("The score must not be greater than 100");
+                }
+                validInput = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input: Please enter a valid score for the subject");
+                scanner.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid input: " + e.getMessage());
+            }
+        } while (!validInput);
+
+        return score;
     }
 
     public static String formatNumber(int number) {

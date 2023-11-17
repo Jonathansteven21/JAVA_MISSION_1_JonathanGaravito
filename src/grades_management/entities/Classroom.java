@@ -1,4 +1,4 @@
-package entities;
+package grades_management.entities;
 
 public class Classroom {
 
