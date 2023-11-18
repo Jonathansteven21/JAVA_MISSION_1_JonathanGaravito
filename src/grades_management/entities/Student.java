@@ -9,9 +9,21 @@ public class Student implements Comparable<Student> {
     private Integer englishScore;
     private Float averageScore;
 
-
     public Student() {
         // Void Constructor
+    }
+
+    /**
+     * Compare two students based on their average scores.
+     * Used for sorting in descending order.
+     *
+     * @param o The student to compare to.
+     * @return A negative integer, zero, or a positive integer as this student's
+     *         average score is less than, equal to, or greater than the specified student's.
+     */
+    @Override
+    public int compareTo(Student o) {
+        return Float.compare(o.getAverageScore(), this.getAverageScore());
     }
 
     public String getName() {
@@ -62,8 +74,4 @@ public class Student implements Comparable<Student> {
         this.averageScore = averageScore;
     }
 
-    @Override
-    public int compareTo(Student o) {
-        return Float.compare(o.getAverageScore(), this.getAverageScore());
-    }
 }

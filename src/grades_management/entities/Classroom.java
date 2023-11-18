@@ -2,7 +2,6 @@ package grades_management.entities;
 
 public class Classroom {
 
-
     private Student[] studentsList;
     private Float javaAvgScore;
     private Float sqlAvgScore;
@@ -12,7 +11,6 @@ public class Classroom {
     public Classroom() {
         // Void Constructor
     }
-
 
     public Student[] getStudentsList() {
         return studentsList;
@@ -53,5 +51,4 @@ public class Classroom {
     public void setEnglishAvgScore(Float englishAvgScore) {
         this.englishAvgScore = englishAvgScore;
     }
-
 }
