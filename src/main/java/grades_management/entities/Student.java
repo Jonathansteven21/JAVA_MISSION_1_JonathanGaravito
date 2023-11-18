@@ -1,5 +1,7 @@
 package grades_management.entities;
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student> {
 
     private String name;
@@ -24,6 +26,18 @@ public class Student implements Comparable<Student> {
     @Override
     public int compareTo(Student o) {
         return Float.compare(o.getAverageScore(), this.getAverageScore());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student student)) return false;
+        return Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     public String getName() {

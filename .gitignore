@@ -29,7 +29,8 @@ bin/
 .DS_Store
 
 # IntelliJ IDEA files
-.idea/
+.idea/*
+
 
 # Build output
 target/
@@ -41,7 +42,3 @@ build/
 # Dependency directories
 lib/
 libs/
-
-# Default ignored files
-/shelf/
-/workspace.xml

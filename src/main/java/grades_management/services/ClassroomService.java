@@ -109,7 +109,10 @@ public class ClassroomService {
      * Calculates and sets the average scores for each subject in the classroom.
      */
     public void calculateSubjectAvg() {
-        int sumJava = 0, sumSql = 0, sumMath = 0, sumEnglish = 0;
+        int sumJava = 0;
+        int sumSql = 0;
+        int sumMath = 0;
+        int sumEnglish = 0;
         for (Student student : classroom.getStudentsList()) {
             sumJava += student.getJavaScore();
             sumSql += student.getSqlScore();
@@ -135,5 +138,9 @@ public class ClassroomService {
         System.out.printf("SQL Class Avg.:%.2f%n", classroom.getSqlAvgScore());
         System.out.printf("Math. Class Avg.:%.2f%n", classroom.getMathAvgScore());
         System.out.printf("English Class Avg.:%.2f%n", classroom.getEnglishAvgScore());
+    }
+
+    public Classroom getClassroom() {
+        return classroom;
     }
 }
